@@ -40,9 +40,8 @@ public class Compra {
     @Column(nullable = false, length = 20)
     private String estado = "ACTIVA";
 
-    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DetalleCompra> detalles = new ArrayList<>();
-
+   @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+private List<DetalleCompra> detalles = new ArrayList<>();
     public Compra() {}
 
     public Integer getId() { return id; }

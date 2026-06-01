@@ -27,9 +27,8 @@ public class DevolucionCompra {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal total = BigDecimal.ZERO;
 
-    @OneToMany(mappedBy = "devolucion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DetalleDevolucion> detalles = new ArrayList<>();
-
+   @OneToMany(mappedBy = "devolucion", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+private List<DetalleDevolucion> detalles = new ArrayList<>();
     public DevolucionCompra() {}
 
     public Integer getId() { return id; }
